@@ -1,0 +1,217 @@
+/* City of San Clemente design kit — tokens + typography */
+
+:root {
+  /* Primary (navy blue) */
+  --primary\/100: #DCE1E8;
+  --primary\/300: #7199C9;
+  --primary\/500: #0B366A;
+  --primary\/700: #07192E;
+  --primary\/900: #03080E;
+
+  /* Secondary (warm tan / stone) */
+  --secondary\/100: #F1F0EF;
+  --secondary\/300: #D2D0C6;
+  --secondary\/500: #AFA683;
+  --secondary\/700: #524D37;
+  --secondary\/900: #1B1913;
+
+  /* Accent (ocean blue) */
+  --accent\/100: #E9EEF0;
+  --accent\/300: #A7CFDC;
+  --accent\/500: #24B6E5;
+  --accent\/700: #115166;
+  --accent\/900: #071A20;
+
+  /* Status */
+  --danger\/100: #EFE9E8;
+  --danger\/500: #D93025;
+  --success\/100: #E0E9E5;
+  --success\/500: #1A8754;
+  --warning\/100: #F0ECE7;
+  --warning\/500: #E8890C;
+
+  /* Neutral */
+  --neutral\/white: #FFF;
+  --neutral\/black: #000;
+
+  /* Semantic: text */
+  --text\/primary: var(--primary\/700);
+  --text\/secondary: var(--secondary\/700);
+  --text\/on-primary: var(--neutral\/white);
+  --text\/on-accent: var(--neutral\/white);
+  --text\/link: var(--accent\/500);
+  --text\/muted: var(--secondary\/500);
+
+  /* Semantic: surface */
+  --surface\/background: #F6E8CF;
+  --surface\/white: var(--neutral\/white);
+  --surface\/primary: var(--primary\/500);
+  --surface\/dark: var(--primary\/700);
+  --surface\/card: var(--secondary\/100);
+  --surface\/accent: var(--accent\/500);
+  --surface\/accent-subtle: var(--accent\/100);
+  --surface\/warm: #F4D193;
+
+  /* Semantic: border */
+  --border\/default: var(--secondary\/300);
+  --border\/subtle: var(--secondary\/100);
+  --border\/strong: var(--secondary\/500);
+
+  /* Semantic: interactive */
+  --interactive\/default: var(--accent\/500);
+  --interactive\/hover: var(--accent\/700);
+  --interactive\/primary: var(--primary\/500);
+  --interactive\/primary-hover: var(--primary\/700);
+
+  /* Semantic: status */
+  --status\/error: var(--danger\/500);
+  --status\/error-subtle: var(--danger\/100);
+  --status\/success: var(--success\/500);
+  --status\/success-subtle: var(--success\/100);
+  --status\/warning: var(--warning\/500);
+  --status\/warning-subtle: var(--warning\/100);
+
+  /* Spacing — raw scale (px) */
+  --space\/0: 0;
+  --space\/1: 2;
+  --space\/2: 4;
+  --space\/3: 6;
+  --space\/4: 8;
+  --space\/5: 12;
+  --space\/6: 16;
+  --space\/7: 20;
+  --space\/8: 24;
+  --space\/9: 32;
+  --space\/10: 40;
+  --space\/11: 48;
+  --space\/12: 64;
+  --space\/13: 80;
+  --space\/14: 96;
+  --space\/15: 128;
+
+  /* Spacing — semantic aliases */
+  --gap\/none: 0px;
+  --gap\/tight: 4px;
+  --gap\/default: 8px;
+  --gap\/relaxed: 16px;
+  --gap\/loose: 24px;
+  --gap\/section: 40px;
+  --gap\/between-sections: 48px;
+  --padding\/none: 0px;
+  --padding\/tight: 4px;
+  --padding\/default: 8px;
+  --padding\/comfortable: 16px;
+  --padding\/spacious: 24px;
+  --padding\/page: 96px;
+  --margin\/none: 0px;
+  --margin\/tight: 8px;
+  --margin\/default: 16px;
+  --margin\/relaxed: 24px;
+  --margin\/spacious: 48px;
+
+  /* Border radius */
+  --radius\/none: 0px;
+  --radius\/sm: 4px;
+  --radius\/md: 8px;
+  --radius\/lg: 16px;
+  --radius\/xl: 24px;
+  --radius\/full: 9999px;
+}
+
+/* Typography — headings (Signika) */
+.heading-display { font-family: 'Signika', sans-serif; font-weight: 700; font-size: 72px; line-height: 80px; letter-spacing: -1.5px; }
+.heading-h1 { font-family: 'Signika', sans-serif; font-weight: 700; font-size: 56px; line-height: 64px; letter-spacing: -1px; }
+.heading-h2 { font-family: 'Signika', sans-serif; font-weight: 700; font-size: 40px; line-height: 48px; letter-spacing: -0.5px; }
+.heading-h3 { font-family: 'Signika', sans-serif; font-weight: 600; font-size: 32px; line-height: 40px; letter-spacing: 0px; }
+.heading-h4 { font-family: 'Signika', sans-serif; font-weight: 600; font-size: 24px; line-height: 32px; letter-spacing: 0px; }
+.heading-h5 { font-family: 'Signika', sans-serif; font-weight: 600; font-size: 20px; line-height: 28px; letter-spacing: 0.15px; }
+.heading-h6 { font-family: 'Signika', sans-serif; font-weight: 600; font-size: 16px; line-height: 24px; letter-spacing: 0.15px; }
+
+/* Typography — body (Arimo) */
+.body-body-lg { font-family: 'Arimo', sans-serif; font-weight: 400; font-size: 18px; line-height: 28px; letter-spacing: 0.15px; }
+.body-body { font-family: 'Arimo', sans-serif; font-weight: 400; font-size: 16px; line-height: 26px; letter-spacing: 0.25px; }
+.body-body-bold { font-family: 'Arimo', sans-serif; font-weight: 700; font-size: 16px; line-height: 26px; letter-spacing: 0.25px; }
+.body-body-sm { font-family: 'Arimo', sans-serif; font-weight: 400; font-size: 14px; line-height: 22px; letter-spacing: 0.25px; }
+.body-caption { font-family: 'Arimo', sans-serif; font-weight: 400; font-size: 12px; line-height: 18px; letter-spacing: 0.4px; }
+.body-overline { font-family: 'Arimo', sans-serif; font-weight: 700; font-size: 11px; line-height: 16px; letter-spacing: 1.5px; text-transform: uppercase; }
+.body-event-time { font-family: 'Arimo', sans-serif; font-weight: 700; font-size: 15px; line-height: 22px; letter-spacing: 0px; }
+.body-event-description { font-family: 'Arimo', sans-serif; font-weight: 400; font-size: 15px; line-height: 22px; letter-spacing: 0px; }
+
+h1, h2, h3, h4, h5, h6 { margin: 0; font-family: 'Signika', sans-serif; }
+p { margin: 0; }
+a { color: inherit; text-decoration: none; }
+button { font-family: 'Arimo', sans-serif; cursor: pointer; }
+
+/* -------------------------------------------------------------------------
+   Hyphenated aliases of the tokens above.
+   The design-system reference (design.md) documents tokens with a slash,
+   e.g. --primary/500. A literal "/" in a custom-property name must be
+   backslash-escaped everywhere it's referenced (in CSS and in Tailwind
+   arbitrary values), which is easy to get wrong by hand. These hyphenated
+   aliases point at the same values and are what component code should use.
+   ------------------------------------------------------------------------- */
+:root {
+  --color-primary-100: var(--primary\/100);
+  --color-primary-300: var(--primary\/300);
+  --color-primary-500: var(--primary\/500);
+  --color-primary-700: var(--primary\/700);
+  --color-primary-900: var(--primary\/900);
+
+  --color-secondary-100: var(--secondary\/100);
+  --color-secondary-300: var(--secondary\/300);
+  --color-secondary-500: var(--secondary\/500);
+  --color-secondary-700: var(--secondary\/700);
+  --color-secondary-900: var(--secondary\/900);
+
+  --color-accent-100: var(--accent\/100);
+  --color-accent-300: var(--accent\/300);
+  --color-accent-500: var(--accent\/500);
+  --color-accent-700: var(--accent\/700);
+  --color-accent-900: var(--accent\/900);
+
+  --color-danger-100: var(--danger\/100);
+  --color-danger-500: var(--danger\/500);
+  --color-success-100: var(--success\/100);
+  --color-success-500: var(--success\/500);
+  --color-warning-100: var(--warning\/100);
+  --color-warning-500: var(--warning\/500);
+
+  --text-primary: var(--text\/primary);
+  --text-secondary: var(--text\/secondary);
+  --text-on-primary: var(--text\/on-primary);
+  --text-on-accent: var(--text\/on-accent);
+  --text-link: var(--text\/link);
+  --text-muted: var(--text\/muted);
+
+  --surface-background: var(--surface\/background);
+  --surface-white: var(--surface\/white);
+  --surface-primary: var(--surface\/primary);
+  --surface-dark: var(--surface\/dark);
+  --surface-card: var(--surface\/card);
+  --surface-accent: var(--surface\/accent);
+  --surface-accent-subtle: var(--surface\/accent-subtle);
+  --surface-warm: var(--surface\/warm);
+
+  --border-default: var(--border\/default);
+  --border-subtle: var(--border\/subtle);
+  --border-strong: var(--border\/strong);
+
+  --interactive-default: var(--interactive\/default);
+  --interactive-hover: var(--interactive\/hover);
+  --interactive-primary: var(--interactive\/primary);
+  --interactive-primary-hover: var(--interactive\/primary-hover);
+
+  --status-error: var(--status\/error);
+  --status-error-subtle: var(--status\/error-subtle);
+  --status-success: var(--status\/success);
+  --status-success-subtle: var(--status\/success-subtle);
+  --status-warning: var(--status\/warning);
+  --status-warning-subtle: var(--status\/warning-subtle);
+
+  --radius-none: var(--radius\/none);
+  --radius-sm: var(--radius\/sm);
+  --radius-md: var(--radius\/md);
+  --radius-lg: var(--radius\/lg);
+  --radius-xl: var(--radius\/xl);
+  --radius-full: var(--radius\/full);
+}
