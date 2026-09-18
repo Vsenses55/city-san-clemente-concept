@@ -4,13 +4,10 @@ import { IconWorld, IconMenu, IconClose } from './icons';
 const UTILITY_LINKS = ['3-1-1', 'Animal Services', 'Campaign Disclosures', 'Homelessness Info', 'Muni-Code', 'Transparency'];
 const MAIN_NAV = ['Residents', 'Business', 'Government', 'Visitors', 'Connect'];
 
-export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
+export function UtilityBar() {
   return (
-    <header className="relative z-30">
-      {/* Utility bar */}
-      <div className="hidden lg:flex items-center justify-between px-9 py-3 bg-[var(--surface-primary)] text-white">
+    <div className="hidden lg:block bg-[var(--surface-primary)] text-white">
+      <div className="max-w-[1200px] mx-auto flex items-center justify-between px-6 py-3">
         <nav className="flex gap-6 body-caption">
           {UTILITY_LINKS.map((link) => (
             <a key={link} href="#" className="hover:text-[var(--surface-warm)] transition-colors">
@@ -23,36 +20,45 @@ export default function Header() {
           Translate
         </button>
       </div>
+    </div>
+  );
+}
 
-      {/* Main header */}
-      <div className="flex items-center justify-between px-6 lg:px-9 py-4 bg-[var(--surface-white)]">
-        <a href="#" className="flex items-center gap-3 shrink-0">
-          <span
-            className="flex items-center justify-center rounded-full size-12 lg:size-14 text-white heading-h6"
-            style={{ background: 'var(--surface-primary)' }}
-          >
-            COSC
-          </span>
-          <span className="heading-h6 text-[var(--text-primary)] leading-tight hidden sm:block">
-            City of
-            <br />
-            San Clemente
-          </span>
-        </a>
+function Logo({ light = false }: { light?: boolean }) {
+  return (
+    <a href="#" className="flex flex-col leading-none shrink-0">
+      <span className={`logo-script text-4xl sm:text-5xl ${light ? 'text-white' : 'text-[var(--text-primary)]'}`}>
+        San Clemente
+      </span>
+      <span className={`body-overline -mt-1 ${light ? 'text-white/90' : 'text-[var(--text-muted)]'}`}>
+        The Spanish Village by the Sea
+      </span>
+    </a>
+  );
+}
 
-        <nav className="hidden lg:flex items-center gap-10 heading-h6 text-[var(--text-primary)]">
+/** Sits directly on top of the hero photo — intentionally transparent, no background of its own. */
+export function MainNav() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <div className="relative z-30">
+      <div className="max-w-[1200px] mx-auto flex items-center justify-between px-6 py-6">
+        <Logo light />
+
+        <nav className="hidden lg:flex items-center gap-10 heading-h6 text-white">
           {MAIN_NAV.map((link) => (
-            <a key={link} href="#" className="hover:text-[var(--interactive-default)] transition-colors">
+            <a key={link} href="#" className="hover:text-[var(--surface-warm)] transition-colors">
               {link}
             </a>
           ))}
-          <button className="hover:text-[var(--interactive-default)] transition-colors" aria-label="Search">
+          <button className="hover:text-[var(--surface-warm)] transition-colors" aria-label="Search">
             Search
           </button>
         </nav>
 
         <button
-          className="lg:hidden flex items-center justify-center size-10 text-[var(--text-primary)]"
+          className="lg:hidden flex items-center justify-center size-10 text-white"
           onClick={() => setMenuOpen(true)}
           aria-label="Open menu"
         >
@@ -60,7 +66,6 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile menu overlay */}
       {menuOpen && (
         <div className="fixed inset-0 z-40 bg-[var(--surface-dark)] text-white lg:hidden">
           <div className="flex justify-end p-6">
@@ -85,6 +90,6 @@ export default function Header() {
           </nav>
         </div>
       )}
-    </header>
+    </div>
   );
 }

@@ -1,4 +1,4 @@
-import Header from './components/Header';
+import { UtilityBar } from './components/Header';
 import Hero from './components/Hero';
 import QuickLinks from './components/QuickLinks';
 import VideoSection from './components/VideoSection';
@@ -10,9 +10,9 @@ import Footer from './components/Footer';
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col" style={{ background: 'var(--surface-background)' }}>
-      <Header />
+      <UtilityBar />
       <Hero />
-      <main className="flex flex-col gap-10 sm:gap-14 px-4 sm:px-8 lg:px-16 py-10 sm:py-14 max-w-[1400px] w-full mx-auto">
+      <main className="flex flex-col gap-10 sm:gap-14 px-4 sm:px-8 py-10 sm:py-14 max-w-[1200px] w-full mx-auto">
         <QuickLinks />
         <VideoSection />
         <EventsCalendar />

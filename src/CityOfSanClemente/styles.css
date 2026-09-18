@@ -118,24 +118,32 @@
   --radius\/full: 9999px;
 }
 
-/* Typography — headings (Signika) */
-.heading-display { font-family: 'Signika', sans-serif; font-weight: 700; font-size: 72px; line-height: 80px; letter-spacing: -1.5px; }
-.heading-h1 { font-family: 'Signika', sans-serif; font-weight: 700; font-size: 56px; line-height: 64px; letter-spacing: -1px; }
-.heading-h2 { font-family: 'Signika', sans-serif; font-weight: 700; font-size: 40px; line-height: 48px; letter-spacing: -0.5px; }
-.heading-h3 { font-family: 'Signika', sans-serif; font-weight: 600; font-size: 32px; line-height: 40px; letter-spacing: 0px; }
-.heading-h4 { font-family: 'Signika', sans-serif; font-weight: 600; font-size: 24px; line-height: 32px; letter-spacing: 0px; }
-.heading-h5 { font-family: 'Signika', sans-serif; font-weight: 600; font-size: 20px; line-height: 28px; letter-spacing: 0.15px; }
-.heading-h6 { font-family: 'Signika', sans-serif; font-weight: 600; font-size: 16px; line-height: 24px; letter-spacing: 0.15px; }
+/* Typography — headings (Signika)
+   Defined with @utility (not plain classes) so Tailwind treats them as real
+   utilities: this lets you compose them with responsive/state variants, e.g.
+   className="heading-h3 lg:heading-display". A plain ".heading-display {}"
+   class would NOT support the "lg:" prefix. */
+@utility heading-display { font-family: 'Signika', sans-serif; font-weight: 700; font-size: 72px; line-height: 80px; letter-spacing: -1.5px; }
+@utility heading-h1 { font-family: 'Signika', sans-serif; font-weight: 700; font-size: 56px; line-height: 64px; letter-spacing: -1px; }
+@utility heading-h2 { font-family: 'Signika', sans-serif; font-weight: 700; font-size: 40px; line-height: 48px; letter-spacing: -0.5px; }
+@utility heading-h3 { font-family: 'Signika', sans-serif; font-weight: 600; font-size: 32px; line-height: 40px; letter-spacing: 0px; }
+@utility heading-h4 { font-family: 'Signika', sans-serif; font-weight: 600; font-size: 24px; line-height: 32px; letter-spacing: 0px; }
+@utility heading-h5 { font-family: 'Signika', sans-serif; font-weight: 600; font-size: 20px; line-height: 28px; letter-spacing: 0.15px; }
+@utility heading-h6 { font-family: 'Signika', sans-serif; font-weight: 600; font-size: 16px; line-height: 24px; letter-spacing: 0.15px; }
 
 /* Typography — body (Arimo) */
-.body-body-lg { font-family: 'Arimo', sans-serif; font-weight: 400; font-size: 18px; line-height: 28px; letter-spacing: 0.15px; }
-.body-body { font-family: 'Arimo', sans-serif; font-weight: 400; font-size: 16px; line-height: 26px; letter-spacing: 0.25px; }
-.body-body-bold { font-family: 'Arimo', sans-serif; font-weight: 700; font-size: 16px; line-height: 26px; letter-spacing: 0.25px; }
-.body-body-sm { font-family: 'Arimo', sans-serif; font-weight: 400; font-size: 14px; line-height: 22px; letter-spacing: 0.25px; }
-.body-caption { font-family: 'Arimo', sans-serif; font-weight: 400; font-size: 12px; line-height: 18px; letter-spacing: 0.4px; }
-.body-overline { font-family: 'Arimo', sans-serif; font-weight: 700; font-size: 11px; line-height: 16px; letter-spacing: 1.5px; text-transform: uppercase; }
-.body-event-time { font-family: 'Arimo', sans-serif; font-weight: 700; font-size: 15px; line-height: 22px; letter-spacing: 0px; }
-.body-event-description { font-family: 'Arimo', sans-serif; font-weight: 400; font-size: 15px; line-height: 22px; letter-spacing: 0px; }
+@utility body-body-lg { font-family: 'Arimo', sans-serif; font-weight: 400; font-size: 18px; line-height: 28px; letter-spacing: 0.15px; }
+@utility body-body { font-family: 'Arimo', sans-serif; font-weight: 400; font-size: 16px; line-height: 26px; letter-spacing: 0.25px; }
+@utility body-body-bold { font-family: 'Arimo', sans-serif; font-weight: 700; font-size: 16px; line-height: 26px; letter-spacing: 0.25px; }
+@utility body-body-sm { font-family: 'Arimo', sans-serif; font-weight: 400; font-size: 14px; line-height: 22px; letter-spacing: 0.25px; }
+@utility body-caption { font-family: 'Arimo', sans-serif; font-weight: 400; font-size: 12px; line-height: 18px; letter-spacing: 0.4px; }
+@utility body-overline { font-family: 'Arimo', sans-serif; font-weight: 700; font-size: 11px; line-height: 16px; letter-spacing: 1.5px; text-transform: uppercase; }
+@utility body-event-time { font-family: 'Arimo', sans-serif; font-weight: 700; font-size: 15px; line-height: 22px; letter-spacing: 0px; }
+@utility body-event-description { font-family: 'Arimo', sans-serif; font-weight: 400; font-size: 15px; line-height: 22px; letter-spacing: 0px; }
+
+/* Brand wordmark — a deliberate one-off script face for the logo lockup only.
+   Not part of the Signika/Arimo type system used for content. */
+@utility logo-script { font-family: 'Alex Brush', cursive; font-weight: 400; }
 
 h1, h2, h3, h4, h5, h6 { margin: 0; font-family: 'Signika', sans-serif; }
 p { margin: 0; }
