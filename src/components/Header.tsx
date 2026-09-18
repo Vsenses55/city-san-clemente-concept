@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { IconWorld, IconMenu, IconClose } from './icons';
+import logoSanClemente from '../assets/images/logo-san-clemente.png';
 
 const UTILITY_LINKS = ['3-1-1', 'Animal Services', 'Campaign Disclosures', 'Homelessness Info', 'Muni-Code', 'Transparency'];
 const MAIN_NAV = ['Residents', 'Business', 'Government', 'Visitors', 'Connect'];
@@ -24,21 +25,14 @@ export function UtilityBar() {
   );
 }
 
-/**
- * TEMPORARY placeholder — the real mark is a custom serif-italic logotype
- * designed in Figma ("San Clemente" + "The Spanish Village by the Sea"
- * tagline). Swap this for an <img>/<svg> of the exported asset as soon as
- * it's available; don't reach for a Google Font to fake it in the meantime.
- */
-function Logo({ light = false }: { light?: boolean }) {
+function Logo() {
   return (
-    <a href="#" className="flex flex-col leading-none shrink-0">
-      <span className={`heading-h3 sm:heading-h2 italic ${light ? 'text-white' : 'text-[var(--text-primary)]'}`}>
-        San Clemente
-      </span>
-      <span className={`body-overline -mt-1 ${light ? 'text-white/90' : 'text-[var(--text-muted)]'}`}>
-        The Spanish Village by the Sea
-      </span>
+    <a href="#" className="shrink-0">
+      <img
+        src={logoSanClemente}
+        alt="City of San Clemente — The Spanish Village by the Sea"
+        className="h-14 sm:h-16 lg:h-20 w-auto"
+      />
     </a>
   );
 }
@@ -50,7 +44,7 @@ export function MainNav() {
   return (
     <div className="relative z-30">
       <div className="max-w-[1200px] mx-auto flex items-center justify-between px-6 py-6">
-        <Logo light />
+        <Logo />
 
         <nav className="hidden lg:flex items-center gap-10 heading-h6 text-white">
           {MAIN_NAV.map((link) => (
