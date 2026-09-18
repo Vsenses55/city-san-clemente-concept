@@ -24,10 +24,16 @@ export function UtilityBar() {
   );
 }
 
+/**
+ * TEMPORARY placeholder — the real mark is a custom serif-italic logotype
+ * designed in Figma ("San Clemente" + "The Spanish Village by the Sea"
+ * tagline). Swap this for an <img>/<svg> of the exported asset as soon as
+ * it's available; don't reach for a Google Font to fake it in the meantime.
+ */
 function Logo({ light = false }: { light?: boolean }) {
   return (
     <a href="#" className="flex flex-col leading-none shrink-0">
-      <span className={`logo-script text-4xl sm:text-5xl ${light ? 'text-white' : 'text-[var(--text-primary)]'}`}>
+      <span className={`heading-h3 sm:heading-h2 italic ${light ? 'text-white' : 'text-[var(--text-primary)]'}`}>
         San Clemente
       </span>
       <span className={`body-overline -mt-1 ${light ? 'text-white/90' : 'text-[var(--text-muted)]'}`}>
