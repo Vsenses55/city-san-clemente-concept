@@ -12,7 +12,7 @@ export default function App() {
     <div className="min-h-screen flex flex-col" style={{ background: 'var(--surface-background)' }}>
       <UtilityBar />
       <Hero />
-      <main className="flex flex-col gap-10 sm:gap-14 px-4 sm:px-8 pt-20 pb-10 sm:pb-14 max-w-[1200px] w-full mx-auto">
+      <main className="relative z-10 flex flex-col gap-10 sm:gap-14 px-4 sm:px-8 pt-20 pb-10 sm:pb-14 max-w-[1200px] w-full mx-auto">
         <QuickLinks />
         <VideoSection />
         <EventsCalendar />
