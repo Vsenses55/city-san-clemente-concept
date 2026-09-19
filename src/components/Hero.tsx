@@ -1,5 +1,6 @@
 import { MainNav } from './Header';
 import heroImage from '../assets/images/hero-marquee.jpg';
+import heroImageMobile from '../assets/images/hero-marquee-mobile.jpg';
 
 export default function Hero() {
   return (
@@ -8,17 +9,33 @@ export default function Hero() {
         Decorative photo layer — absolutely positioned and fully decoupled from page
         layout. Its height never pushes the nav, headline, or the next section; only
         the content block below (in normal flow) determines where anything sits.
-        Below lg: fluid, full width, aspect-locked to the photo's own ratio.
-        At lg+: rendered at true native size (3840x1200) — never scaled, no matter how
-        wide the screen gets — centered and clipped by this layer's own overflow-hidden
-        box. If the photo is taller than the content below, the extra length simply
+
+        Three tiers, each its own purpose-built photo at true native size (never
+        scaled by CSS):
+          - Phone (below sm, <640px): a taller portrait-oriented crop
+            (1024x1080) with its own baked-in fade to the page background at the
+            bottom, so the headline lands over real water instead of a short,
+            already-faded sliver.
+          - Tablet (sm–lg, 640–1023px): the wide desktop photo, fluid and
+            aspect-locked, with a CSS fade at the bottom.
+          - Desktop (lg+, 1024px+): the wide photo at true native size
+            (3840x1200) — never scaled, no matter how wide the screen gets.
+        If a photo is taller than the content below, the extra length simply
         extends behind whatever comes next rather than adding empty space.
       */}
-      <div className="absolute inset-x-0 top-0 overflow-hidden pointer-events-none aspect-[16/5] lg:aspect-auto lg:h-[1200px]">
+      <div className="absolute inset-x-0 top-0 overflow-hidden pointer-events-none h-[1080px] sm:h-auto sm:aspect-[16/5] lg:aspect-auto lg:h-[1200px]">
+        {/* Phone tier — native size, center-cropped by this wrapper's overflow-hidden. */}
+        <img
+          src={heroImageMobile}
+          alt="Aerial view of the San Clemente coastline and pier"
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[1024px] h-[1080px] max-w-none sm:hidden"
+        />
+
+        {/* Tablet (fluid) + desktop (native at lg+) tiers — same photo, same fade. */}
         <img
           src={heroImage}
           alt="Aerial view of the San Clemente coastline and pier"
-          className="w-full h-full object-cover
+          className="hidden sm:block sm:w-full sm:h-full sm:object-cover
                      lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2
                      lg:w-[3840px] lg:h-[1200px] lg:max-w-none"
           style={{
@@ -28,6 +45,7 @@ export default function Hero() {
             WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 58%, transparent 82%)',
           }}
         />
+
         {/* light scrim behind the nav only, so it stays legible over bright sky/water */}
         <div
           className="absolute inset-x-0 top-0 h-40 lg:h-64"
