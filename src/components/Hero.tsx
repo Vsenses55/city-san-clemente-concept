@@ -1,66 +1,70 @@
 import { MainNav } from './Header';
 import heroImage from '../assets/images/hero-marquee.jpg';
 
-// The Figma reference is a 1440px-wide design — that's the scale the photo, nav, and
-// headline were composed at, and it's what we treat as "actual size" for this hero.
-const REFERENCE_WIDTH = 1440;
-
 export default function Hero() {
   return (
-    <section className="relative" style={{ background: 'var(--surface-background)' }}>
+    <section className="relative overflow-hidden" style={{ background: 'var(--surface-background)' }}>
       {/*
-        Capping at the reference width — rather than letting the image/aspect box grow
-        with the viewport — is what stops this from "scaling." Below 1440px it still
-        shrinks fluidly like any responsive layout (no crop, aspect ratio always matches).
-        At 1440px and above it freezes at exactly the reference size: the photo and the
-        headline sitting in the water never change size or position relative to each
-        other again, no matter how wide the monitor is. The page background fills in on
-        either side beyond that width, rather than the image stretching taller/wider,
-        which is what was pushing the headline out of the water on big screens.
+        Below lg: the image is fluid (full width, aspect-locked, content-hugging), same
+        as the mobile treatment approved earlier.
+        At lg and up: the image is rendered at its true native pixel size (3840x1200) —
+        no CSS scaling, ever, no matter how wide the monitor gets. It's centered
+        horizontally and clipped by this section's overflow-hidden; the two edge-fade
+        layers below blend that clipped edge into the page background instead of
+        leaving a hard cut.
       */}
-      <div className="relative w-full mx-auto" style={{ maxWidth: REFERENCE_WIDTH }}>
+      <div className="grid w-full lg:min-h-[1200px]">
+        <img
+          src={heroImage}
+          alt="Aerial view of the San Clemente coastline and pier"
+          className="col-start-1 row-start-1 self-start w-full aspect-[16/5] object-cover
+                     lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2
+                     lg:w-[3840px] lg:h-[1200px] lg:max-w-none lg:aspect-auto"
+          style={{
+            // Fades the bottom of the photo into the page background instead of a
+            // hard edge — unrelated to the left/right edge treatment below.
+            maskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)',
+          }}
+        />
+
+        {/* light scrim behind the nav only, so it stays legible over bright sky/water */}
+        <div
+          className="col-start-1 row-start-1 self-start w-full aspect-[16/5] pointer-events-none
+                     lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2
+                     lg:w-[3840px] lg:h-[1200px] lg:aspect-auto"
+          style={{ background: 'linear-gradient(180deg, rgba(3,8,14,0.45) 0%, rgba(3,8,14,0) 20%)' }}
+        />
+
         {/*
-          Grid "stack": the image and the nav/content overlay share the same cell, so the
-          row's height is the larger of the two — the photo's own aspect ratio (never
-          cropped or repositioned) versus whatever room the nav + headline actually need.
-          On tall/narrow screens where the content needs more room than the photo's
-          native ratio provides, the section simply grows and the extra space is the
-          page background color (which the photo already fades into), so nothing looks cut.
+          Left/right edge blend — only needed at lg+, where the native-size image can be
+          narrower or wider than the viewport and gets clipped by overflow-hidden. Fades
+          the clipped edge into the page background so the cut isn't a hard line.
         */}
-        <div className="grid w-full">
-          <img
-            src={heroImage}
-            alt="Aerial view of the San Clemente coastline and pier"
-            className="col-start-1 row-start-1 self-start w-full aspect-[16/5] object-cover"
-            style={{
-              // No objectPosition offset — the image's full frame is shown at its native
-              // aspect ratio, so nothing is cropped or shifted.
-              maskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)',
-            }}
-          />
-          {/* light scrim behind the nav only, so it stays legible over bright sky/water */}
-          <div
-            className="col-start-1 row-start-1 self-start w-full aspect-[16/5] pointer-events-none"
-            style={{ background: 'linear-gradient(180deg, rgba(3,8,14,0.45) 0%, rgba(3,8,14,0) 45%)' }}
-          />
+        <div
+          className="hidden lg:block lg:absolute lg:inset-y-0 lg:left-0 lg:w-40 pointer-events-none z-10"
+          style={{ background: 'linear-gradient(to right, var(--surface-background) 0%, transparent 100%)' }}
+        />
+        <div
+          className="hidden lg:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-40 pointer-events-none z-10"
+          style={{ background: 'linear-gradient(to left, var(--surface-background) 0%, transparent 100%)' }}
+        />
 
-          <div className="col-start-1 row-start-1 relative flex flex-col">
-            <MainNav />
+        <div className="col-start-1 row-start-1 relative z-20 flex flex-col">
+          <MainNav />
 
-            <div className="max-w-[1200px] w-full mx-auto px-6 mt-6 sm:mt-10 lg:mt-20 xl:mt-24">
-              <h1 className="heading-h2 sm:heading-h1 lg:heading-display text-white drop-shadow-sm max-w-2xl">
-                The Spanish Village
-                <br />
-                by the Sea
-              </h1>
-              <div className="flex items-center gap-2 mt-6 lg:mt-10" aria-hidden="true">
-                <span className="size-3 rounded-full bg-white" />
-                <span className="w-8 h-3 rounded-full bg-[var(--surface-warm)]" />
-                <span className="size-3 rounded-full bg-white" />
-                <span className="size-3 rounded-full bg-white" />
-                <span className="size-3 rounded-full bg-white" />
-              </div>
+          <div className="max-w-[1200px] w-full mx-auto px-6 mt-6 sm:mt-10 lg:mt-[210px] xl:mt-[256px]">
+            <h1 className="heading-h2 sm:heading-h1 lg:heading-display text-white drop-shadow-sm max-w-2xl">
+              The Spanish Village
+              <br />
+              by the Sea
+            </h1>
+            <div className="flex items-center gap-2 mt-6 lg:mt-[105px]" aria-hidden="true">
+              <span className="size-3 rounded-full bg-white" />
+              <span className="w-8 h-3 rounded-full bg-[var(--surface-warm)]" />
+              <span className="size-3 rounded-full bg-white" />
+              <span className="size-3 rounded-full bg-white" />
+              <span className="size-3 rounded-full bg-white" />
             </div>
           </div>
         </div>
