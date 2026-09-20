@@ -1,4 +1,5 @@
 import { IconInstagram, IconFacebook, IconX, IconTikTok } from './icons';
+import logoCosc from '../assets/logo/cosc-seal.png';
 
 const COL_1 = ['Residents', 'Business', 'Government', 'Visitors', 'Connect'];
 const COL_2 = ['3-1-1', 'Animal Services', 'Muni-Code', 'Transparency', 'Homelessness Info'];
@@ -15,12 +16,7 @@ export default function Footer() {
       <div className="max-w-[1200px] mx-auto px-6 sm:px-9 py-12 sm:py-16 flex flex-col gap-10">
         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-10">
           <div className="flex items-center gap-4">
-            <span
-              className="flex items-center justify-center rounded-full size-20 heading-h6 shrink-0"
-              style={{ background: 'var(--color-secondary-500)', color: 'var(--text-primary)' }}
-            >
-              COSC
-            </span>
+            <img src={logoCosc} alt="City of San Clemente seal" className="size-20 shrink-0" />
             <p className="heading-h5">
               City of
               <br />
