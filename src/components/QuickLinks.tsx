@@ -7,12 +7,12 @@ import iconMeetings from '../assets/icons/meetings.png';
 import iconCurrentProjects from '../assets/icons/current-projects.png';
 
 const LINKS = [
-  { icon: iconPayABill, label: 'Pay A Bill' },
-  { icon: iconRecreation, label: 'Recreation Sign-up' },
-  { icon: iconCompliance, label: 'Code Compliance & Service Requests' },
-  { icon: iconPermits, label: 'Permits & Business Licensee' },
-  { icon: iconMeetings, label: 'Meetings & Agendas' },
-  { icon: iconCurrentProjects, label: 'Current Projects' },
+  { icon: iconPayABill, label: 'Pay A Bill', shortLabel: 'Pay A Bill' },
+  { icon: iconRecreation, label: 'Recreation Sign-up', shortLabel: 'Recreation' },
+  { icon: iconCompliance, label: 'Code Compliance & Service Requests', shortLabel: 'Compliance' },
+  { icon: iconPermits, label: 'Permits & Business Licensee', shortLabel: 'Permits' },
+  { icon: iconMeetings, label: 'Meetings & Agendas', shortLabel: 'Meetings' },
+  { icon: iconCurrentProjects, label: 'Current Projects', shortLabel: 'Projects' },
 ];
 
 export default function QuickLinks() {
@@ -33,15 +33,18 @@ export default function QuickLinks() {
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3">
-        {LINKS.map(({ icon, label }, i) => (
+        {LINKS.map(({ icon, label, shortLabel }, i) => (
           <a
             key={label}
             href="#"
-            className="group flex flex-col items-center justify-center gap-3 p-6 sm:p-10 border border-[var(--border-subtle)] transition-colors hover:bg-[var(--surface-accent-subtle)]"
-            style={{ background: i < 3 ? 'var(--surface-white)' : 'var(--color-secondary-100)' }}
+            className="group flex flex-col items-center justify-center gap-[13px] h-[127px] sm:h-[251px] px-4 sm:px-10 border border-[#e8e2e2] transition-colors hover:bg-[var(--surface-accent-subtle)]"
+            style={{ backgroundImage: `linear-gradient(to bottom, #ffffff, ${i < 3 ? '#f8f6f6' : '#f1e8e8'})` }}
           >
-            <img src={icon} alt="" className="size-10 sm:size-12" aria-hidden="true" />
-            <p className="heading-h6 sm:heading-h5 text-[var(--text-primary)] text-center">{label}</p>
+            <img src={icon} alt="" className="size-20 sm:size-[100px]" aria-hidden="true" />
+            <p className="heading-h6 sm:heading-h5 text-[var(--text-primary)] text-center">
+              <span className="sm:hidden">{shortLabel}</span>
+              <span className="hidden sm:inline">{label}</span>
+            </p>
           </a>
         ))}
       </div>
