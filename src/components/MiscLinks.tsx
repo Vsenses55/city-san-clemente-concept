@@ -16,11 +16,11 @@ export default function MiscLinks() {
         <a
           key={label}
           href="#"
-          className="flex flex-col items-center justify-center gap-3 p-8 sm:p-10 border border-[color:var(--color-secondary-300)] text-[var(--text-primary)] transition-colors hover:brightness-95"
+          className="flex flex-col items-center justify-center gap-[13px] p-8 sm:p-10 border border-[#e5be7d] text-[var(--text-primary)] transition-colors hover:brightness-95"
           style={{ background: 'var(--surface-warm)' }}
         >
-          <Icon className="size-8 sm:size-9" />
-          <p className="heading-h6 uppercase text-center tracking-wide">{label}</p>
+          <Icon className="size-[75px]" />
+          <p className="heading-h5 uppercase text-center tracking-wide">{label}</p>
         </a>
       ))}
     </section>
