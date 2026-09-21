@@ -67,7 +67,7 @@ export default function EventsCalendar() {
             return (
               <div
                 key={d.toISOString()}
-                className={`flex flex-col items-center gap-1.5 px-2.5 py-2 rounded-xl ${isToday ? 'font-bold' : 'text-white/50'}`}
+                className={`flex flex-col items-center gap-1.5 px-2.5 py-2 rounded-[6px] ${isToday ? 'font-bold' : 'text-white/50'}`}
                 style={isToday ? { background: 'var(--surface-warm)', color: 'var(--text-primary)' } : undefined}
               >
                 <p className="text-[11px] uppercase">{d.toLocaleDateString('en-US', { weekday: 'short' })}</p>
