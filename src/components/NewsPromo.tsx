@@ -10,7 +10,7 @@ const NEWS = [
 
 export default function NewsPromo() {
   return (
-    <section className="grid lg:grid-cols-2 lg:h-[457px]">
+    <section className="grid lg:grid-cols-[520fr_680fr] lg:h-[457px]">
       <div
         className="flex flex-col justify-center gap-6 p-8 sm:p-12 lg:p-14"
         style={{ background: '#0d4281' }}

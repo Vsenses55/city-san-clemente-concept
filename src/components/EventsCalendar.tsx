@@ -42,11 +42,11 @@ export default function EventsCalendar() {
 
   return (
     <section
-      className="grid lg:grid-cols-[minmax(0,420px)_1fr] lg:h-[457px]"
+      className="grid lg:grid-cols-[520fr_680fr] lg:h-[457px]"
       style={{ background: 'var(--surface-primary)' }}
     >
       {/* Calendar */}
-      <div className="flex flex-col items-center gap-6 p-8 sm:p-10">
+      <div className="flex flex-col items-center justify-center gap-6 p-8 sm:p-10 lg:h-full">
         <div className="flex items-center gap-4">
           <button onClick={() => shiftMonth(-1)} aria-label="Previous month" className="text-white/80 hover:text-white">
             <IconChevronLeft className="size-4" />
@@ -93,7 +93,7 @@ export default function EventsCalendar() {
       </div>
 
       {/* Meetings & Events */}
-      <div className="relative p-8 sm:p-10 lg:p-14" style={{ background: '#0d4281' }}>
+      <div className="relative flex flex-col justify-center p-8 sm:p-10 lg:p-14 lg:h-full" style={{ background: '#0d4281' }}>
         <div
           className="hidden sm:flex absolute top-0 right-0 flex-col items-center justify-center rounded-bl-[40px] size-20 sm:size-24 lg:size-[110px] text-white"
           style={{ background: 'var(--color-secondary-500)' }}
