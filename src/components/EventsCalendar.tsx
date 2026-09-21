@@ -42,7 +42,7 @@ export default function EventsCalendar() {
 
   return (
     <section
-      className="grid lg:grid-cols-[minmax(0,420px)_1fr] rounded-[var(--radius-xl)] overflow-hidden"
+      className="grid lg:grid-cols-[minmax(0,420px)_1fr] lg:h-[457px]"
       style={{ background: 'var(--surface-primary)' }}
     >
       {/* Calendar */}
@@ -93,13 +93,13 @@ export default function EventsCalendar() {
       </div>
 
       {/* Meetings & Events */}
-      <div className="relative p-8 sm:p-10 lg:p-14" style={{ background: 'var(--color-primary-700)' }}>
+      <div className="relative p-8 sm:p-10 lg:p-14" style={{ background: '#0d4281' }}>
         <div
-          className="hidden sm:flex absolute top-0 right-8 lg:right-16 flex-col items-center justify-center rounded-b-[var(--radius-xl)] w-24 py-3 text-[var(--text-primary)]"
+          className="hidden sm:flex absolute top-0 right-0 flex-col items-center justify-center rounded-bl-[40px] size-20 sm:size-24 lg:size-[110px] text-white"
           style={{ background: 'var(--color-secondary-500)' }}
         >
-          <p className="heading-h2 leading-none">{today.getDate()}</p>
-          <p className="body-body-bold uppercase tracking-wide">{today.toLocaleDateString('en-US', { month: 'short' })}</p>
+          <p className="body-body-bold uppercase tracking-wide leading-none">{today.toLocaleDateString('en-US', { month: 'short' })}</p>
+          <p className="heading-display text-[32px] sm:text-[44px] lg:text-[72px] leading-none">{today.getDate()}</p>
         </div>
 
         <div className="grid sm:grid-cols-2 gap-10">

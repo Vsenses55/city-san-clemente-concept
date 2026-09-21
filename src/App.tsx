@@ -15,8 +15,10 @@ export default function App() {
       <main className="relative z-10 flex flex-col gap-10 sm:gap-14 px-4 sm:px-8 pt-20 pb-10 sm:pb-14 max-w-[1200px] w-full mx-auto">
         <QuickLinks />
         <VideoSection />
-        <EventsCalendar />
-        <NewsPromo />
+        <div className="rounded-[var(--radius-xl)] overflow-hidden flex flex-col">
+          <EventsCalendar />
+          <NewsPromo />
+        </div>
         <MiscLinks />
       </main>
       <Footer />

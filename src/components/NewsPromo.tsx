@@ -1,4 +1,5 @@
-import { IconArrowRight } from './icons';
+import promoDesktop from '../assets/images/promo-san-clemente-desktop.jpg';
+import promoMobile from '../assets/images/promo-san-clemente-mobile.jpg';
 
 const NEWS = [
   'Ballot Measure BB, City Council Candidates, City of San Clemente General Municipal',
@@ -9,39 +10,30 @@ const NEWS = [
 
 export default function NewsPromo() {
   return (
-    <section className="grid lg:grid-cols-2 rounded-[var(--radius-xl)] overflow-hidden">
-      <div className="flex flex-col justify-center gap-6 p-8 sm:p-12" style={{ background: 'var(--color-primary-700)' }}>
+    <section className="grid lg:grid-cols-2 lg:h-[457px]">
+      <div
+        className="flex flex-col justify-center gap-6 p-8 sm:p-12 lg:p-14"
+        style={{ background: '#0d4281' }}
+      >
         <h2 className="heading-h3 text-white">Latest News</h2>
-        <ul className="flex flex-col gap-4 body-body-sm text-white/90">
+        <ul className="flex flex-col gap-3 body-body-sm text-white/90 list-disc pl-5 marker:text-white/50">
           {NEWS.map((item) => (
-            <li key={item} className="flex gap-3">
-              <span className="mt-2 size-1.5 rounded-full bg-white/60 shrink-0" />
-              <span>{item}</span>
-            </li>
+            <li key={item}>{item}</li>
           ))}
         </ul>
-        <a href="#" className="self-end flex items-center gap-2 body-body-bold text-[var(--text-link)] border-b border-[var(--text-link)] pb-1 w-fit">
-          view more
-          <IconArrowRight className="size-4" />
-        </a>
       </div>
 
-      <div
-        className="relative flex flex-col items-center justify-center gap-6 p-10 min-h-[320px] text-white text-center"
-        style={{
-          background: 'linear-gradient(160deg, var(--color-accent-700), var(--color-accent-500) 60%, var(--surface-warm))',
-        }}
-      >
-        <p className="body-overline">Get to know</p>
-        <h2 className="heading-h2">San Clemente</h2>
-        <a
-          href="#"
-          className="absolute bottom-0 right-0 flex items-center gap-3 px-8 py-6 rounded-tl-[var(--radius-xl)] text-white heading-h6"
-          style={{ background: 'var(--color-accent-500)' }}
-        >
-          learn more
-          <IconArrowRight className="size-4" />
-        </a>
+      <div className="relative min-h-[320px] lg:min-h-0">
+        <img
+          src={promoMobile}
+          alt="San Clemente"
+          className="lg:hidden block w-full h-full object-cover"
+        />
+        <img
+          src={promoDesktop}
+          alt="San Clemente"
+          className="hidden lg:block w-full h-full object-cover"
+        />
       </div>
     </section>
   );
