@@ -16,10 +16,10 @@ export default function Hero() {
             (1024x1080) with its own baked-in fade to the page background at the
             bottom, so the headline lands over real water instead of a short,
             already-faded sliver.
-          - Tablet (sm–lg, 640–1023px): a dedicated crop (2048x760, 2x for
-            retina at its ~1024x380 max on-screen size) composed specifically
+          - Tablet (sm–lg, 640–1023px): a dedicated crop (2048x1000, 2x for
+            retina at its ~1024x500 max on-screen size) composed specifically
             for this range, fluid and aspect-locked to its own native ratio,
-            with a 380px height floor so it can't shrink so short that the
+            with a 500px height floor so it can't shrink so short that the
             headline's second line lands past the fade, floating on bare
             background. Below that floor the photo crops in slightly via
             object-cover rather than getting any shorter.
@@ -28,7 +28,7 @@ export default function Hero() {
         If a photo is taller than the content below, the extra length simply
         extends behind whatever comes next rather than adding empty space.
       */}
-      <div className="absolute inset-x-0 top-0 overflow-hidden pointer-events-none h-[1080px] sm:h-auto sm:aspect-[2048/760] sm:min-h-[380px] lg:aspect-auto lg:min-h-0 lg:h-[1200px]">
+      <div className="absolute inset-x-0 top-0 overflow-hidden pointer-events-none h-[1080px] sm:h-auto sm:aspect-[2048/1000] sm:min-h-[500px] lg:aspect-auto lg:min-h-0 lg:h-[1200px]">
         {/* Phone tier — native size, center-cropped by this wrapper's overflow-hidden. */}
         <img
           src={heroImageMobile}
