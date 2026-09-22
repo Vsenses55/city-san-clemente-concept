@@ -67,27 +67,29 @@ export function MainNav() {
       </div>
 
       {menuOpen && (
-        <div className="fixed inset-0 z-40 bg-[var(--surface-dark)] text-white lg:hidden overflow-y-auto">
-          <div className="flex justify-end p-6">
+        <div className="fixed inset-0 z-40 bg-[var(--surface-dark)] text-white lg:hidden overflow-y-auto flex flex-col">
+          <div className="flex justify-end p-6 shrink-0">
             <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
               <IconClose className="size-7" />
             </button>
           </div>
-          <nav className="flex flex-col items-center gap-4 py-5 heading-h5">
-            {UTILITY_LINKS.map((link) => (
-              <a key={link} href="#" onClick={() => setMenuOpen(false)}>
-                {link}
-              </a>
-            ))}
-          </nav>
-          <nav className="flex flex-col items-center gap-4 py-5 heading-h5 border-t border-white/10 mx-8">
-            {MAIN_NAV.map((link) => (
-              <a key={link} href="#" onClick={() => setMenuOpen(false)}>
-                {link}
-              </a>
-            ))}
-            <button onClick={() => setMenuOpen(false)}>Search</button>
-          </nav>
+          <div className="flex-1 flex flex-col justify-center">
+            <nav className="flex flex-col items-center gap-5 py-4 heading-h5">
+              {UTILITY_LINKS.map((link) => (
+                <a key={link} href="#" onClick={() => setMenuOpen(false)}>
+                  {link}
+                </a>
+              ))}
+            </nav>
+            <nav className="flex flex-col items-center gap-5 py-4 heading-h5 border-t border-white/10 mx-8">
+              {MAIN_NAV.map((link) => (
+                <a key={link} href="#" onClick={() => setMenuOpen(false)}>
+                  {link}
+                </a>
+              ))}
+              <button onClick={() => setMenuOpen(false)}>Search</button>
+            </nav>
+          </div>
         </div>
       )}
     </div>
