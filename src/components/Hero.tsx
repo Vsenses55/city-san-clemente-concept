@@ -17,13 +17,17 @@ export default function Hero() {
             bottom, so the headline lands over real water instead of a short,
             already-faded sliver.
           - Tablet (sm–lg, 640–1023px): the wide desktop photo, fluid and
-            aspect-locked, with a CSS fade at the bottom.
+            aspect-locked (matches the photo's native 16:5 ratio, so no crop),
+            with a 380px height floor so it can't shrink so short that the
+            headline's second line lands past the fade, floating on bare
+            background. Below that floor the photo crops in slightly via
+            object-cover rather than getting any shorter.
           - Desktop (lg+, 1024px+): the wide photo at true native size
             (3840x1200) — never scaled, no matter how wide the screen gets.
         If a photo is taller than the content below, the extra length simply
         extends behind whatever comes next rather than adding empty space.
       */}
-      <div className="absolute inset-x-0 top-0 overflow-hidden pointer-events-none h-[1080px] sm:h-auto sm:aspect-[16/5] lg:aspect-auto lg:h-[1200px]">
+      <div className="absolute inset-x-0 top-0 overflow-hidden pointer-events-none h-[1080px] sm:h-auto sm:aspect-[16/5] sm:min-h-[380px] lg:aspect-auto lg:min-h-0 lg:h-[1200px]">
         {/* Phone tier — native size, center-cropped by this wrapper's overflow-hidden. */}
         <img
           src={heroImageMobile}
