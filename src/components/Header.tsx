@@ -67,13 +67,15 @@ export function MainNav() {
       </div>
 
       {menuOpen && (
-        <div className="fixed inset-0 z-40 bg-[var(--surface-dark)] text-white lg:hidden overflow-y-auto flex flex-col">
-          <div className="flex justify-end p-6 shrink-0">
-            <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
-              <IconClose className="size-7" />
-            </button>
-          </div>
-          <div className="flex-1 flex flex-col justify-center">
+        <div className="fixed inset-0 z-40 bg-[var(--surface-dark)] text-white lg:hidden overflow-y-auto">
+          <button
+            onClick={() => setMenuOpen(false)}
+            aria-label="Close menu"
+            className="absolute top-6 right-6 z-10"
+          >
+            <IconClose className="size-7" />
+          </button>
+          <div className="min-h-full flex flex-col justify-center py-6">
             <nav className="flex flex-col items-center gap-5 py-4 heading-h5">
               {UTILITY_LINKS.map((link) => (
                 <a key={link} href="#" onClick={() => setMenuOpen(false)}>
