@@ -1,5 +1,6 @@
 import { MainNav } from './Header';
 import heroImage from '../assets/images/hero-marquee.jpg';
+import heroImageTablet from '../assets/images/hero-marquee-tablet.jpg';
 import heroImageMobile from '../assets/images/hero-marquee-mobile.jpg';
 
 export default function Hero() {
@@ -10,14 +11,14 @@ export default function Hero() {
         layout. Its height never pushes the nav, headline, or the next section; only
         the content block below (in normal flow) determines where anything sits.
 
-        Three tiers, each its own purpose-built photo at true native size (never
-        scaled by CSS):
+        Three tiers, each its own purpose-built, purpose-cropped photo:
           - Phone (below sm, <640px): a taller portrait-oriented crop
             (1024x1080) with its own baked-in fade to the page background at the
             bottom, so the headline lands over real water instead of a short,
             already-faded sliver.
-          - Tablet (sm–lg, 640–1023px): the wide desktop photo, fluid and
-            aspect-locked (matches the photo's native 16:5 ratio, so no crop),
+          - Tablet (sm–lg, 640–1023px): a dedicated crop (2048x760, 2x for
+            retina at its ~1024x380 max on-screen size) composed specifically
+            for this range, fluid and aspect-locked to its own native ratio,
             with a 380px height floor so it can't shrink so short that the
             headline's second line lands past the fade, floating on bare
             background. Below that floor the photo crops in slightly via
@@ -27,7 +28,7 @@ export default function Hero() {
         If a photo is taller than the content below, the extra length simply
         extends behind whatever comes next rather than adding empty space.
       */}
-      <div className="absolute inset-x-0 top-0 overflow-hidden pointer-events-none h-[1080px] sm:h-auto sm:aspect-[16/5] sm:min-h-[380px] lg:aspect-auto lg:min-h-0 lg:h-[1200px]">
+      <div className="absolute inset-x-0 top-0 overflow-hidden pointer-events-none h-[1080px] sm:h-auto sm:aspect-[2048/760] sm:min-h-[380px] lg:aspect-auto lg:min-h-0 lg:h-[1200px]">
         {/* Phone tier — native size, center-cropped by this wrapper's overflow-hidden. */}
         <img
           src={heroImageMobile}
@@ -35,16 +36,26 @@ export default function Hero() {
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[1024px] h-[1080px] max-w-none sm:hidden"
         />
 
-        {/* Tablet (fluid) + desktop (native at lg+) tiers — same photo, same fade. */}
+        {/* Tablet tier — dedicated crop, fluid within its own aspect ratio + floor. */}
         <img
-          src={heroImage}
+          src={heroImageTablet}
           alt="Aerial view of the San Clemente coastline and pier"
-          className="hidden sm:block sm:w-full sm:h-full sm:object-cover
-                     lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2
-                     lg:w-[3840px] lg:h-[1200px] lg:max-w-none"
+          className="hidden sm:block lg:hidden sm:w-full sm:h-full sm:object-cover"
           style={{
             // Fades the bottom of the photo into the page background instead of a
             // hard edge.
+            maskImage: 'linear-gradient(to bottom, black 0%, black 58%, transparent 82%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 58%, transparent 82%)',
+          }}
+        />
+
+        {/* Desktop tier — native size, never scaled. */}
+        <img
+          src={heroImage}
+          alt="Aerial view of the San Clemente coastline and pier"
+          className="hidden lg:block lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2
+                     lg:w-[3840px] lg:h-[1200px] lg:max-w-none"
+          style={{
             maskImage: 'linear-gradient(to bottom, black 0%, black 58%, transparent 82%)',
             WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 58%, transparent 82%)',
           }}
