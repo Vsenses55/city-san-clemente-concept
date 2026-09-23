@@ -1,10 +1,10 @@
 import { IconAlert } from './icons';
-import iconPayABill from '../assets/icons/pay-a-bill.png';
-import iconRecreation from '../assets/icons/recreation.png';
-import iconCompliance from '../assets/icons/compliance.png';
-import iconPermits from '../assets/icons/permits.png';
-import iconMeetings from '../assets/icons/meetings.png';
-import iconCurrentProjects from '../assets/icons/current-projects.png';
+import iconPayABill from '../assets/icons/pay-a-bill-tight.png';
+import iconRecreation from '../assets/icons/recreation-tight.png';
+import iconCompliance from '../assets/icons/compliance-tight.png';
+import iconPermits from '../assets/icons/permits-tight.png';
+import iconMeetings from '../assets/icons/meetings-tight.png';
+import iconCurrentProjects from '../assets/icons/current-projects-tight.png';
 
 const LINKS = [
   { icon: iconPayABill, label: 'Pay A Bill', shortLabel: 'Pay A Bill' },
@@ -40,7 +40,12 @@ export default function QuickLinks() {
             className="group flex flex-col items-center justify-center gap-[6.5px] lg:gap-[13px] h-[127px] sm:h-[251px] px-4 sm:px-10 border border-[#e8e2e2] transition-colors hover:bg-[var(--surface-accent-subtle)]"
             style={{ backgroundImage: `linear-gradient(to bottom, #ffffff, ${i < 3 ? '#f8f6f6' : '#f1e8e8'})` }}
           >
-            <img src={icon} alt="" className="size-20 sm:size-[100px]" aria-hidden="true" />
+            <img
+              src={icon}
+              alt=""
+              aria-hidden="true"
+              className="size-20 sm:size-[100px] object-contain object-bottom"
+            />
             <p className="heading-h6 sm:heading-h5 text-[var(--text-primary)] text-center">
               <span className="sm:hidden">{shortLabel}</span>
               <span className="hidden sm:inline">{label}</span>
