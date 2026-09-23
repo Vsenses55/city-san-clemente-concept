@@ -16,7 +16,7 @@ export default function MiscLinks() {
         <a
           key={label}
           href="#"
-          className="flex flex-col items-center justify-center gap-[13px] p-8 sm:p-10 border border-[#e5be7d] text-[var(--text-primary)] transition-colors hover:brightness-95"
+          className="flex flex-col items-center justify-center gap-[6.5px] lg:gap-[13px] p-8 sm:p-10 border border-[#e5be7d] text-[var(--text-primary)] transition-colors hover:brightness-95"
           style={{ background: 'var(--surface-warm)' }}
         >
           <Icon className="size-[75px]" />
