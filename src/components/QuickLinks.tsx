@@ -37,7 +37,7 @@ export default function QuickLinks() {
           <a
             key={label}
             href="#"
-            className="group flex flex-col items-center justify-center gap-[13px] h-[127px] sm:h-[251px] px-4 sm:px-10 border border-[#e8e2e2] transition-colors hover:bg-[var(--surface-accent-subtle)]"
+            className="group flex flex-col items-center justify-center gap-[6.5px] lg:gap-[13px] h-[127px] sm:h-[251px] px-4 sm:px-10 border border-[#e8e2e2] transition-colors hover:bg-[var(--surface-accent-subtle)]"
             style={{ backgroundImage: `linear-gradient(to bottom, #ffffff, ${i < 3 ? '#f8f6f6' : '#f1e8e8'})` }}
           >
             <img src={icon} alt="" className="size-20 sm:size-[100px]" aria-hidden="true" />
