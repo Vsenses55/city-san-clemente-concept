@@ -20,7 +20,7 @@ export default function QuickLinks() {
     <section className="rounded-[var(--radius-xl)] overflow-hidden">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-3 px-6 sm:px-11 py-5 bg-[var(--surface-primary)] text-white">
         <div className="flex items-center gap-3">
-          <IconAlert className="size-10 shrink-0" />
+          <IconAlert className="w-10 h-[35px] shrink-0" />
           <p className="heading-h4">City Alerts</p>
         </div>
         <p className="body-body-lg text-center">High Tide Report and Weather Statement</p>
