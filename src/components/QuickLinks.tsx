@@ -44,7 +44,7 @@ export default function QuickLinks() {
               src={icon}
               alt=""
               aria-hidden="true"
-              className="size-20 sm:size-[100px] object-contain object-bottom"
+              className="size-16 sm:size-[100px] object-contain object-bottom"
             />
             <p className="heading-h6 sm:heading-h5 text-[var(--text-primary)] text-center">
               <span className="sm:hidden">{shortLabel}</span>
